@@ -18,7 +18,7 @@ app.get('/', (req,res)=>{
 res.send('helloworld');
 });
 app.get('/api/courses',(req,res)=> {
-  res.send(courses);  
+  res
 
 });
 const port = process.env.port || 3000;
@@ -33,8 +33,8 @@ app.post('/api/courses',(req,res)=>{
     
         const result = schema.validate(req.body);
   if(result.error){res.status(400).send(result.error.details[0].message);
-    return;
-}
+   			 return;
+					}	
 const course = {
     id: courses.length +1,
     name : req.body.name

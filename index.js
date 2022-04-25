@@ -24,7 +24,6 @@ app.get('/api/courses',(req,res)=> {
 const port = process.env.port || 3000;
 app.listen(port,()=>console.log(`listening on port ${port}....`));
 // functions
-
 //post function
 app.post('/api/courses',(req,res)=>{
     const schema = Joi.object({
@@ -42,3 +41,4 @@ const course = {
 courses.push(course);
 res.send(course);
 });
+

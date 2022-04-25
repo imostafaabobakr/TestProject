@@ -33,7 +33,7 @@ app.post('/api/courses',(req,res)=>{
     
         const result = schema.validate(req.body);
   if(result.error){res.status(400).send(result.error.details[0].message);
-   			 return;
+   			 return ;
 					}	
 const course = {
     id: courses.length +1,

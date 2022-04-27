@@ -35,8 +35,51 @@ const getBookById = async (req, res) =>{
 }
 
 
+const updateBook = async (req,res) =>{
+    try{
+        const bookId =  req.params.id
+
+        const book = await Book.findOne({_id : bookId})
+
+        if(req.body.title){
+            book.title = req.body.title;
+        }
+        if(req.body.year){
+            book.year = req.body.year;
+        }
+
+        if(req.body.course){
+            book.course = req.body.course;
+        }
+    
+
+        await book.save()
+        res.status(200).send(book)
+    }
+    catch(e){
+        res.status(400).send(e)
+     }
+
+}
+
+
+
+const deleteBook = async (req,res) =>{
+
+    try{
+        const bookId =  req.params.id
+        const book = await Book.deleteOne({_id : bookId})
+        res.status(200).send(book)
+    }
+    catch(e){
+        res.status(400).send(e)
+     }
+}
+
 module.exports= {
     createBook,
     getBooks,
-    getBookById
+    getBookById,
+    updateBook,
+    deleteBook
 }

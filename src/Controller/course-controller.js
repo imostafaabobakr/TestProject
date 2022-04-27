@@ -10,6 +10,7 @@ const createCourse = async (req, res) =>{
         res.status(400).send(e)
      }
 }
+
 const getCourses = async (req, res) =>{
     try{
         const courses = await Course.find({})
@@ -65,6 +66,9 @@ const updateCourse = async (req,res) =>{
      }
 
 }
+
+
+
 const deleteCourse = async (req,res) =>{
 
     try{
@@ -75,4 +79,12 @@ const deleteCourse = async (req,res) =>{
     catch(e){
         res.status(400).send(e)
      }
+}
+
+module.exports= {
+    createCourse,
+    getCourses,
+    getCourseById,
+    updateCourse,
+    deleteCourse
 }

@@ -10,3 +10,13 @@ const createReview = async (req, res) =>{
         res.status(400).send(e)
      }
 }
+
+const getReviews = async (req, res) =>{
+    try{
+        const reviews = await Review.find({})
+        res.status(200).send(reviews)
+    }
+    catch(e){
+       res.status(400).send(e)
+    }
+}

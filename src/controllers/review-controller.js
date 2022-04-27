@@ -20,3 +20,15 @@ const getReviews = async (req, res) =>{
        res.status(400).send(e)
     }
 }
+
+const getReviewById = async (req, res) =>{
+
+    try{
+        const reviewId =  req.params.id
+        const review = await Review.findById(reviewId).populate({ path: 'student', select:[ 'firstName','lastName' ]}).populate({ path: 'course', select: 'name' });
+        res.status(200).send(review)
+    }
+    catch(e){
+        res.status(400).send(e)
+     }
+}

@@ -21,9 +21,22 @@ const getBooks = async (req, res) =>{
     }
 }
 
+const getBookById = async (req, res) =>{
 
+    try{
+        const bookId =  req.params.id
+        console.log(bookId);
+        const book = await Book.findById(bookId).populate({ path: 'course', select: 'name' });
+        res.status(200).send(book)
+    }
+    catch(e){
+        res.status(400).send(e)
+     }
+}
 
 
 module.exports= {
     createBook,
-    getBooks}
+    getBooks,
+    getBookById
+}

@@ -66,3 +66,24 @@ const updateStudent = async (req,res) =>{
 
 }
 
+
+
+const deleteStudent = async (req,res) =>{
+
+    try{
+        const studentId =  req.params.id
+        const student = await Student.deleteOne({_id : studentId})
+        res.status(200).send(student)
+    }
+    catch(e){
+        res.status(400).send(e)
+     }
+}
+
+module.exports= {
+    createStudent,
+    getStudents,
+    getStudentById,
+    updateStudent,
+    deleteStudent
+}

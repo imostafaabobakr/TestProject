@@ -32,3 +32,37 @@ const getStudentById = async (req, res) =>{
         res.status(400).send(e)
      }
 }
+
+
+const updateStudent = async (req,res) =>{
+    try{
+        const studentId =  req.params.id
+        const student = await Student.findOne({_id : studentId})
+
+        if(req.body.firstName){
+            student.firstName = req.body.firstName;
+        }
+        if(req.body.lastName){
+            student.lastName = req.body.lastName;
+        }
+
+        if(req.body.email){
+            student.email = req.body.email;
+        }
+    
+
+        if(req.body.course){
+            student.course = req.body.course;
+        }
+    
+    
+
+        await student.save()
+        res.status(200).send(student)
+    }
+    catch(e){
+        res.status(400).send(e)
+     }
+
+}
+

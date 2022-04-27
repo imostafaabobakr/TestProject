@@ -32,6 +32,7 @@ const getCourseById = async (req, res) =>{
      }
 }
 
+
 const updateCourse = async (req,res) =>{
     try{
         const courseId =  req.params.id
@@ -64,5 +65,3 @@ const updateCourse = async (req,res) =>{
      }
 
 }
-
-

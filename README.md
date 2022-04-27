@@ -14,7 +14,7 @@ we have 4 entites in our API are listed below :
 3. reviews 
 4. books
 <!-- -->
-each entity is managed using the following Methods : 
+each entity is managed using the following endpoints: 
 - **get** method used to get all the elements of the entity  
 - **get using specifed id** get the data about a specifc element
 - **patch** update data of an entity 

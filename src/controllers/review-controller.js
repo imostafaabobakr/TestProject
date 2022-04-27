@@ -33,6 +33,7 @@ const getReviewById = async (req, res) =>{
      }
 }
 
+
 const updateReview = async (req,res) =>{
     try{
         const reviewId =  req.params.id
@@ -64,4 +65,26 @@ const updateReview = async (req,res) =>{
         res.status(400).send(e)
      }
 
+}
+
+
+
+const deleteReview = async (req,res) =>{
+
+    try{
+        const reviewId =  req.params.id
+        const review = await Review.deleteOne({_id : reviewId})
+        res.status(200).send(review)
+    }
+    catch(e){
+        res.status(400).send(e)
+     }
+}
+
+module.exports= {
+    createReview,
+    getReviews,
+    getReviewById,
+    updateReview,
+    deleteReview
 }

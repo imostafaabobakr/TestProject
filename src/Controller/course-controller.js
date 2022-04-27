@@ -65,3 +65,14 @@ const updateCourse = async (req,res) =>{
      }
 
 }
+const deleteCourse = async (req,res) =>{
+
+    try{
+        const courseId =  req.params.id
+        const course = await Course.deleteOne({_id : courseId})
+        res.status(200).send(course)
+    }
+    catch(e){
+        res.status(400).send(e)
+     }
+}
